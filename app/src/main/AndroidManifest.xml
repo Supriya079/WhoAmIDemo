@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.supriya.whoami">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/app_icon_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WhoAmI"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".patient.Person"
+            android:exported="false" />
+        <activity
+            android:name=".patient.PatientStoreDataActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".doctor.DoctorNavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".guardian.GuardianNavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".patient.PatientNavigationActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".register.RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LaunchActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>
