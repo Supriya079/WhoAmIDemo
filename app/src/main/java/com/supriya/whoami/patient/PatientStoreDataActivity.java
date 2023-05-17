@@ -71,7 +71,7 @@ public class PatientStoreDataActivity extends AppCompatActivity {
 
         checkAndRequestPermissions();
 
-        dataDAO = WhoAmIDB.getInstance(getApplicationContext()).dataDao();
+        dataDAO = WhoAmIDB.getInstance(getApplicationContext()).dataDAO();
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override

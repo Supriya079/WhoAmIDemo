@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.supriya.whoami">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,9 +9,16 @@
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -22,19 +30,90 @@
         android:theme="@style/Theme.WhoAmI"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".patient.PatientHomeLocation"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC2QMDWY3_tVAMb-i9DtVhHP8i752xpD9A" />
+
+        <activity
+            android:name=".patient.FaceRecognize"
+            android:exported="false" />
+        <activity
+            android:name=".doctor.Patients"
+            android:exported="false" />
+        <activity
+            android:name=".guardian.reminder.CreateEventG"
+            android:exported="false" />
+        <activity
+            android:name=".setReminder.CreateEvent"
+            android:exported="false" />
+        <activity
+            android:name=".setReminder.ReminderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".patient.todolist.ToDoListActivity"
+            android:exported="true" />
+        <activity android:name=".patient.todolist.AlarmActivityToDoList" />
+
+        <receiver
+            android:name=".patient.todolist.AlarmBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".setReminder.BootUpReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".setReminder.AlarmBrodcast"
+            android:exported="false"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".guardian.reminder.AlarmBrodcastG"
+            android:exported="false"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".patient.todolist.AlarmService"
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+
+        <activity
             android:name=".patient.Person"
             android:exported="false" />
         <activity
             android:name=".patient.PatientStoreDataActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".doctor.DoctorNavigationActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".guardian.GuardianNavigationActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".login.ForgetPasswordActivity"
             android:exported="false" />
@@ -55,7 +134,9 @@
             android:exported="false" />
         <activity
             android:name=".LaunchActivity"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>

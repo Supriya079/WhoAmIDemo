@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECF1FB"
     tools:context=".patient.Person">
 
     <TextView
@@ -58,6 +59,19 @@
         app:layout_constraintTop_toBottomOf="@+id/editPersonName" />
 
     <EditText
+        android:id="@+id/editPersonNumber"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edittext_border"
+        android:hint="Person Contact"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPersonRelation" />
+
+    <EditText
         android:id="@+id/editPersonImg"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -70,13 +84,14 @@
         android:onClick="takeImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPersonRelation" />
+        app:layout_constraintTop_toBottomOf="@+id/editPersonNumber" />
 
     <Button
         android:id="@+id/personBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

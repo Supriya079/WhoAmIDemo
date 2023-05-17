@@ -1,15 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.supriya.whoami"
         minSdk 21
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -63,7 +64,56 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.14.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
 
+//    compile('com.github.bumptech.glide:okhttp3-integration:1.4.0') {
+//        exclude group: 'glide-parent'
+//    }
+
+    implementation 'com.applandeo:material-calendar-view:1.7.0'
+
     implementation 'com.chaos.view:pinview:1.4.3'
+
+    //Calligraphy
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
+
+    //Design
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.exifinterface:exifinterface:1.0.0'
+    implementation 'androidx.media:media:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.palette:palette:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //ButterKnife
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+    //ML Kit (To detect faces)
+    implementation 'com.google.mlkit:face-detection:16.1.5'
+    implementation 'com.google.android.gms:play-services-mlkit-face-detection:17.0.1'
+
+    //GSON (Conversion of String to Map & Vice-Versa)
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    // CameraX View class (For camera preview)
+    implementation "androidx.camera:camera-core:1.2.0-alpha04"
+    implementation "androidx.camera:camera-camera2:1.2.0-alpha04"
+    implementation "androidx.camera:camera-lifecycle:1.2.0-alpha04"
+    implementation "androidx.camera:camera-view:1.2.0-alpha04"
+
+    //TensorFlow Lite libraries (To recognize faces)
+    implementation 'org.tensorflow:tensorflow-lite-task-vision:0.3.0'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.3.0'
+    implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly-SNAPSHOT'
+
+    //map
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
 }
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-        <item android:id="@+id/home"
+        <item android:id="@+id/homeG"
             android:icon="@drawable/ic_home"
-            android:title="Home"
-            />
+            android:title="Home"/>
+
+        <item android:id="@+id/locationG"
+            android:icon="@drawable/location_icon"
+            android:title="Location"/>
+
+        <item android:id="@+id/doctorG"
+            android:icon="@drawable/ic_hospital"
+            android:title="Doctor Contact"/>
+
+        <item android:id="@+id/logoutG"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout"/>
     </group>
+
 </menu>

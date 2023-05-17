@@ -10,6 +10,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,15 +27,16 @@ import android.widget.Toast;
 
 import com.supriya.whoami.AccessStorage;
 import com.supriya.whoami.R;
+import com.supriya.whoami.doctor.DoctorDashboardFragment;
 import com.supriya.whoami.room.DataDAO;
-import com.supriya.whoami.room.PersonDataEntity;
+import com.supriya.whoami.room.RelationEntity;
 import com.supriya.whoami.room.WhoAmIDB;
 
 import java.io.IOException;
 
 public class Person extends AppCompatActivity {
 
-    EditText personName,personRelation,personImg;
+    EditText personName,personRelation,personImg,personNumber;
     Button btnSavePerson;
     DataDAO dao;
     Dialog dialogM;
@@ -50,28 +52,36 @@ public class Person extends AppCompatActivity {
         personImg = findViewById(R.id.editPersonImg);
         personName = findViewById(R.id.editPersonName);
         personRelation = findViewById(R.id.editPersonRelation);
+        personNumber = findViewById(R.id.editPersonNumber);
         btnSavePerson = findViewById(R.id.personBtn);
 
-        dao = WhoAmIDB.getInstance(getApplicationContext()).dataDao();
+        dao = WhoAmIDB.getInstance(getApplicationContext()).dataDAO();
 
         btnSavePerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (personName.getText().toString().isEmpty() || personRelation.getText().toString().isEmpty()
-                        || personImg.getHint().toString().isEmpty()){
+                        || personNumber.getText().toString().isEmpty() ||personImg.getHint().toString().isEmpty()){
                     Toast.makeText(Person.this,
                             "Data missing",
                             Toast.LENGTH_SHORT).show();
                 }else {
-                    PersonDataEntity personDataEntity = new PersonDataEntity();
-                    personDataEntity.setPersonName(personName.getText().toString());
-                    personDataEntity.setPersonRelation(personRelation.getText().toString());
-                    personImg.setHintTextColor(Color.BLACK);
-                    personDataEntity.setPersonImg(personImg.getHint().toString());
-                    dao.insertPersonData(personDataEntity);
-                    final Intent i = new Intent(getApplicationContext(), PatientNavigationActivity.class);
-                    startActivity(i);
-                    finish();
+                    RelationEntity relationEntity = new RelationEntity();
+                    String personN = personName.getText().toString();
+                    if (dao.isRelationNameExist(personN)){
+                        Toast.makeText(Person.this, "Person Name Already Present", Toast.LENGTH_LONG).show();
+                    }else {
+                        relationEntity.setPersonName(personName.getText().toString());
+                        relationEntity.setPersonRelation(personRelation.getText().toString());
+                        relationEntity.setPersonNumber(personNumber.getText().toString());
+                        personImg.setHintTextColor(Color.BLACK);
+                        relationEntity.setPersonImg(personImg.getHint().toString());
+                        dao.insertPersonData(relationEntity);
+                        final Intent i = new Intent(getApplicationContext(), PatientNavigationActivity.class);
+                        startActivity(i);
+                        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_patient,new PatientDashboardFragment()).commit();
+                        finish();
+                    }
                 }
             }
         });
@@ -132,6 +142,7 @@ public class Person extends AppCompatActivity {
         }
         if (requestCode == CAMERA && resultCode == Activity.RESULT_OK ){
             String camerapath = AccessStorage.getImgPath(intentCameraUri,this);// it will return the Capture image path
+//            final int rotation = getImageOrientation(camerapath);
             personImg.setHint(camerapath);
 
             Log.d("CP",camerapath);
@@ -152,5 +163,27 @@ public class Person extends AppCompatActivity {
             Toast.makeText(Person.this, "Picture Not Selected ", Toast.LENGTH_SHORT).show();
         }
     }
+
+//    public static int getImageOrientation(String camerapath) {
+//        int rotate = 0;
+//        try {
+//            ExifInterface exif = new ExifInterface(camerapath);
+//            int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+//            switch (orientation) {
+//                case ExifInterface.ORIENTATION_ROTATE_270:
+//                    rotate = 270;
+//                    break;
+//                case ExifInterface.ORIENTATION_ROTATE_180:
+//                    rotate = 180;
+//                    break;
+//                case ExifInterface.ORIENTATION_ROTATE_90:
+//                    rotate = 90;
+//                    break;
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return rotate;
+//    }
 
 }

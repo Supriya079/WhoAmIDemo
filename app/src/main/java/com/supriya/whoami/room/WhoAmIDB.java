@@ -6,12 +6,13 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {PatientEntity.class,PersonDataEntity.class},version = 2,exportSchema = false)
+@Database(entities = {PatientEntity.class, RelationEntity.class,EmergencyCntEntity.class
+        ,DoctorCntEntity.class,ReminderEntity.class,PatientListEntity.class},version = 2,exportSchema = false)
 public abstract class WhoAmIDB extends RoomDatabase {
 
     private static WhoAmIDB whoAmIDB = null;
 
-    public abstract DataDAO dataDao();
+    public abstract DataDAO dataDAO();
 
     public static synchronized WhoAmIDB getInstance(Context context){
         if (whoAmIDB == null){

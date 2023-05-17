@@ -253,15 +253,35 @@ public class GuardianRegisterFragment extends Fragment {
         passStr = editpass.getEditableText().toString();
         confirmPassStr = repass.getEditableText().toString();
 
-        Query query = reference.orderByChild("deviceId").equalTo(deviceId);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+//        Query query = reference.orderByChild("deviceId").equalTo(deviceId);
+//        query.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if (snapshot.exists()) {
+//                    Toast.makeText(getContext(), "Device already registered with us", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    if (validate()) {
+//                        signUpUser(user, userTypeStr, nameStr, emailStr, phoneStr, dobStr, genderStr, locationStr, passStr);
+//                        dialog.show();
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                dialog.dismiss();
+//                Toast.makeText(getContext(), "not able to save data to firebase", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+        reference.orderByChild("Email").equalTo(emailStr).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    Toast.makeText(getContext(), "Device already registered with us", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (validate()) {
-                        signUpUser(user, userTypeStr, nameStr, emailStr, phoneStr, dobStr, genderStr, locationStr, passStr);
+                if (snapshot.exists()){
+                    Toast.makeText(getContext(), "Email ID Number Already Present..!", Toast.LENGTH_LONG).show();
+                }else {
+                    if (validate()){
+                        signUpUser(user,userTypeStr,nameStr,emailStr,phoneStr,dobStr,genderStr,locationStr,passStr);
                         dialog.show();
                     }
                 }
