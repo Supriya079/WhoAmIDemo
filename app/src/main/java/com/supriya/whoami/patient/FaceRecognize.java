@@ -115,7 +115,6 @@ public class FaceRecognize extends AppCompatActivity {
 
     private HashMap<String, SimilarityClassifier.Recognition> registered = new HashMap<>(); //saved Faces
 
-
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -628,8 +627,6 @@ public class FaceRecognize extends AppCompatActivity {
                                                     //Adjust orientation of Face
                                                     Bitmap frame_bmp1 = rotateBitmap(frame_bmp, rot, false, false);
 
-
-
                                                     //Get bounding box of face
                                                     RectF boundingBox = new RectF(face.getBoundingBox());
 
@@ -688,7 +685,6 @@ public class FaceRecognize extends AppCompatActivity {
         face_preview.setImageBitmap(bitmap);
 
         //Create ByteBuffer to store normalized image
-
         ByteBuffer imgData = ByteBuffer.allocateDirect(1 * inputSize * inputSize * 3 * 4);
 
         imgData.order(ByteOrder.nativeOrder());
@@ -712,10 +708,10 @@ public class FaceRecognize extends AppCompatActivity {
                     imgData.putFloat((((pixelValue >> 16) & 0xFF) - IMAGE_MEAN) / IMAGE_STD);
                     imgData.putFloat((((pixelValue >> 8) & 0xFF) - IMAGE_MEAN) / IMAGE_STD);
                     imgData.putFloat(((pixelValue & 0xFF) - IMAGE_MEAN) / IMAGE_STD);
-
                 }
             }
         }
+
         //imgData is input to our model
         Object[] inputArray = {imgData};
 
@@ -810,6 +806,7 @@ public class FaceRecognize extends AppCompatActivity {
         return neighbour_list;
 
     }
+
     public Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
         int height = bm.getHeight();
@@ -826,6 +823,7 @@ public class FaceRecognize extends AppCompatActivity {
         bm.recycle();
         return resizedBitmap;
     }
+
     private static Bitmap getCropBitmapByCPU(Bitmap source, RectF cropRectF) {
         Bitmap resultBitmap = Bitmap.createBitmap((int) cropRectF.width(),
                 (int) cropRectF.height(), Bitmap.Config.ARGB_8888);

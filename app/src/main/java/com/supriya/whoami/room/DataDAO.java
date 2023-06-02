@@ -1,12 +1,13 @@
 package com.supriya.whoami.room;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
 import java.util.List;
 
-@Dao
+@Dao //data access object
 public interface DataDAO {
 
     // Save Patient data
@@ -62,5 +63,18 @@ public interface DataDAO {
 
     @Query("DELETE FROM REMINDERENTITY WHERE id = :id")
     void deleteById(int id);
+
+    //location
+    @Insert
+    void insertLocation(LocationEntity locationEntity);
+
+    @Delete
+    void deleteLocation(LocationEntity location);
+
+    @Query("SELECT * FROM LOCATIONENTITY")
+    List<LocationEntity> getAllLocations();
+
+    @Query("SELECT * FROM locationentity LIMIT 1")
+    LocationEntity getLocation();
 
 }

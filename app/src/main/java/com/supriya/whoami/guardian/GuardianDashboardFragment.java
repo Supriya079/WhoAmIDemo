@@ -46,7 +46,7 @@ public class GuardianDashboardFragment extends Fragment {
         fabAddReminder = view.findViewById(R.id.fabAddReminderG);
         home = view.findViewById(R.id.homeBottomG);
         doctorCnt = view.findViewById(R.id.doctorCntG);
-        location = view.findViewById(R.id.locationBottomG);
+        //location = view.findViewById(R.id.locationBottomG);
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,12 +63,12 @@ public class GuardianDashboardFragment extends Fragment {
             }
         });
 
-        location.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_guardian, new GuardianDashboardFragment()).commit();
-            }
-        });
+//        location.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_guardian, new GuardianDashboardFragment()).commit();
+//            }
+//        });
 
         fabAddReminder.setOnClickListener(new View.OnClickListener() {
             @Override

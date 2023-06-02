@@ -79,9 +79,9 @@ public class GuardianNavigationActivity extends AppCompatActivity implements Nav
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_guardian,new GuardianDashboardFragment()).commit();
                 break;
 
-            case R.id.locationG:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_guardian,new GuardianDashboardFragment()).commit();
-                break;
+//            case R.id.locationG:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_guardian,new GuardianDashboardFragment()).commit();
+//                break;
 
             case R.id.doctorG:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_guardian,new GuardianDashboardFragment()).commit();

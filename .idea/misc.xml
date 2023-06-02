@@ -55,7 +55,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/activity_guardian_register_fragment.xml" value="0.16052631578947368" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/activity_guardian_reminder.xml" value="0.16052631578947368" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/activity_launch.xml" value="0.16799999999999998" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/activity_login.xml" value="0.152" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/activity_notification_message.xml" value="0.16052631578947368" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/activity_patient_dashboard.xml" value="0.1" />
@@ -73,6 +73,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/activity_reminder.xml" value="0.16052631578947368" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/activity_set_appointment.xml" value="0.16052631578947368" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/activity_to_do_list.xml" value="0.16052631578947368" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/bottom_sheet_place_name.xml" value="0.16052631578947368" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/custom_dialog_layout.xml" value="0.16052631578947368" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/demo.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/WhoAmI/app/src/main/res/layout/dialog_completed_theme.xml" value="0.1" />

@@ -57,6 +57,7 @@ public class PatientRegisterFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View view =  inflater.inflate(R.layout.activity_patient_register_fragment,container,false);
 
         deviceId = Settings.Secure.getString(PatientRegisterFragment.this.getActivity().getContentResolver(),Settings.Secure.ANDROID_ID);

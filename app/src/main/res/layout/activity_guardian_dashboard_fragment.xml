@@ -95,18 +95,6 @@
                     android:textAllCaps="false" />
 
                 <TextView
-                    android:id="@+id/locationBottomG"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableTop="@drawable/ic_location"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:text="Location"
-                    android:textAllCaps="false" />
-
-                <TextView
                     android:id="@+id/doctorCntG"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="0dp"
